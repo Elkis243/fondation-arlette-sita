@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titre principal (essentiel pour le SEO) -->
+  <title>Fondation Arlette Sita</title>
+
+  <!-- Meta description (résumé pour les moteurs de recherche) -->
+  <meta name="description"
+    content="La Fondation Arlette Sita accompagne les enfants vulnérables et orphelins vers un avenir meilleur grâce à l'éducation et aux projets sociaux. Découvrez comment nous agissons et comment vous pouvez aider.">
+
+  <!-- Mots-clés (moins important aujourd'hui, mais utile pour certains moteurs) -->
+  <meta name="keywords"
+    content="Fondation Arlette Sita, aide aux enfants, éducation, orphelins, solidarité, projets sociaux, dons, charité, bénévolat, Kinshasa, RDC">
+
+  <!-- Auteur (optionnel, mais utile pour crédibilité) -->
+  <meta name="author" content="Fondation Arlette Sita">
+
+  <!-- Robots (contrôle l'indexation par les moteurs de recherche) -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph (pour le partage sur les réseaux sociaux comme Facebook) -->
+  <meta property="og:title" content="Fondation Arlette Sita">
+  <meta property="og:description" content="Soutenez l'éducation et les communautés avec la Fondation Arlette Sita.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.fondationarlettesita.org/">
+  <meta property="og:image" content="{% static "images/logo.png" %}">
+  <meta property="og:image:alt" content="Logo de la Fondation Arlette Sita">
+
+  <!-- Twitter Cards (pour le partage sur Twitter) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fondation Arlette Sita - Soutien à l'Éducation">
+  <meta name="twitter:description" content="Soutenez l'éducation et les communautés avec la Fondation Arlette Sita.">
+  <meta name="twitter:image" content="{% static "images/logo.png" %}">
+
+  <!-- Favicon (améliore l'expérience utilisateur et la reconnaissance) -->
+  <link rel="apple-touch-icon" sizes="128x128" href="{% static "images/favicon/128x128.png" %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static "images/favicon/32x32.png" %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon/16x16.png" %}">
+
+  <!-- Canonical URL (évite le contenu dupliqué) -->
+  <link rel="canonical" href="https://www.fondationarlettesita.org/">
+
+  <!-- CSS Bootstrap (pour le design) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+
+  <!-- Importation de la police de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Importation de la librairie AOS pour les animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+  {% block base %}{% endblock base %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
