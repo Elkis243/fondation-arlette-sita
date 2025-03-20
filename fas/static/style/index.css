@@ -1,0 +1,27 @@
+* {
+  font-family: "Outfit", serif;
+  font-size: 14px;
+  letter-spacing: .2px;
+}
+
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.877), rgba(20, 135, 39, 0.518)),
+    url('../images/hero.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 1%, 100% 30%, 100% 97%, 0 90%, 0% 30%);
+}
+
+.motivation-card {
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 10px;
+}
+.objective-card {
+  background-color: #e8f8f4;
+  border: none;
+  border-radius: 10px;
+}
