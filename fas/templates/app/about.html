@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block base %}
+{% include "component/navbar.html" %}
+
+<header class="header-about d-flex justify-content-center align-items-center text-white mt-2 rounded-top-3">
+  <div class="container-fluid">
+    <p class='fs-1 text-center fw-medium' data-aos="zoom-in" data-aos-duration="1000"># Qui sommes nous ?</p>
+  </div>
+</header>
+
+<section class='alert alert-light text-center p-5 mt-5'>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-7" data-aos="fade-right"  data-aos-duration="800">
+            <p class='fs-4 mb-3 text-start'>Notre histoire</p>
+            <p class='text-start'>
+              La Fondation Arlette Sita (FAS) tire ses origines d’une prise de conscience profonde des défis auxquels
+              fait face la population de la République Démocratique du Congo (RDC), en particulier les enfants
+              vulnérables et les orphelins. Fondée dans un élan de solidarité et de volonté de contribuer à l’évolution
+              du pays, cette organisation non gouvernementale à but non lucratif a vu le jour grâce à l’initiative d’un
+              groupe de citoyens engagés, déterminés à répondre aux besoins croissants des communautés rurales et
+              urbaines.
+              <p class='text-start'>
+                Constatant l’aspiration des enfants démunis à un avenir meilleur, souvent entravée par des
+                portes fermées, ainsi que le rôle crucial que les associations peuvent jouer dans la reconstruction
+                sociale, les fondateurs ont décidé de formaliser leur action.
+              </p>
+          </div>
+          <div class="col-md-5 d-flex align-items-center"  data-aos="fade-left"  data-aos-duration="800">
+            <img src="{% static 'images/about.webp' %}" alt="Notre histoire" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class='p-5'>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <p class='fs-4 text-center'>Décourvir la mission de la <br> fondation Arlette Sita</p>
+            <p class='text-center text-muted'>La mission de la FAS est de promouvoir le bien-être, l’éducation et l’intégration des enfants vulnérables et orphelins tout en contribuant au développement social du pays.</p>
+            <div class='d-flex justify-content-center'>
+              <a href="" class='btn btn-success'>Contactez-nos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% include "component/footer.html" %}
+{% endblock base %}

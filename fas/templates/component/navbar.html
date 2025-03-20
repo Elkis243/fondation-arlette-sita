@@ -1,7 +1,7 @@
 {% load static %}
 <nav class='navbar navbar-expand-md bg-body-tertiary sticky-top'>
   <div class="container">
-    <a href="" class='navbar-brand d-flex justify-content-center align-items-center fs-6'>
+    <a href="{% url "index" %}" class='navbar-brand d-flex justify-content-center align-items-center fs-6'>
       <img src="{% static 'images/logo.png' %}" alt="Logo de la Fondation Arlette Sita" width="48" height="48"
         class="d-inline-block align-text-top me-2">
       <div>
@@ -30,10 +30,10 @@
       <div class='offcanvas-body'>
         <ul class='navbar-nav justify-content-end flex-grow-1 pe-3'>
           <li class="nav-item">
-            <a class="nav-link {% if active == 'index' %}active{% endif %}" href=''>Accueil</a>
+            <a class="nav-link {% if active == 'index' %}active{% endif %}" href='{% url "index" %}'>Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=''>Qui sommes nous ?</a>
+            <a class="nav-link {% if active == 'about' %}active{% endif %}" href='{% url "about" %}'>Qui sommes nous ?</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href=''>Actualités</a>

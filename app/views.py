@@ -6,3 +6,9 @@ def index(request):
     return render(request, 'app/index.html', {
         'active': active
     })
+    
+def about(request):
+    active = 'about'
+    return render(request, 'app/about.html', {
+        'active': active
+    })

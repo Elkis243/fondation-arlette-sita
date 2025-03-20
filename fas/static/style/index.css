@@ -36,6 +36,15 @@
 
   .social-media:hover {
     cursor: pointer;
-    background-color: rgb(56, 244, 172);
+    background-color: rgb(4, 145, 91);
     color: white;
+}
+
+.header-about {
+  background: linear-gradient(rgb(10, 83, 34), rgba(9, 198, 97, 0.86));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45vh;
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 87%, 0% 50%);
 }
