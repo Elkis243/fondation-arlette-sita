@@ -20,8 +20,22 @@
   border: none;
   border-radius: 10px;
 }
-.objective-card {
-  background-color: #e8f8f4;
-  border: none;
-  border-radius: 10px;
+
+  .social-media {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgb(56, 244, 172);
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgb(56, 244, 172);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .social-media:hover {
+    cursor: pointer;
+    background-color: rgb(56, 244, 172);
+    color: white;
 }
