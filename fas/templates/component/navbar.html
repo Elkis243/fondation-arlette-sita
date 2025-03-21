@@ -36,13 +36,13 @@
             <a class="nav-link {% if active == 'about' %}active{% endif %}" href='{% url "about" %}'>Qui sommes nous ?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=''>Actualités</a>
+            <a class="nav-link " href=''>Actualités</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=''>Contact</a>
+            <a class="nav-link {% if active == 'contact' %}active{% endif %}" href='{% url "contact" %}'>Contact</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-outline-success" href=''>Se connecter</a>
+            <a class="btn btn-outline-success" href=''><i class="bi bi-person-circle"></i> Mon espace</a>
           </li>
         </ul>
       </div>

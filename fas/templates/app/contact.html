@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block base %}
+{% include "component/navbar.html" %}
+
+<header class="header-about d-flex justify-content-center align-items-center text-white mt-2 rounded-top-3">
+  <div class="container-fluid">
+    <p class='fs-1 text-center fw-medium' data-aos="zoom-in" data-aos-duration="1000"># Nous contactez !</p>
+  </div>
+</header>
+<section class='p-4'>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="alert alert-light mb-2">
+              <i class="bi bi-geo fs-3"></i> 1485 Avenue Prison Commune de Barumbu Quartier bon marché, Kinshasa, RDC
+            </div>
+            <div class="alert alert-light">
+              <i class="bi bi-phone fs-3"></i> +243 998 346 012 / 242 06 437 77 35
+            </div>
+            <div class="alert alert-light">
+              <i class="bi bi-envelope-open fs-3"></i> contact@fondationarlettesita.org</p>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="container">
+              <form action="{% url 'contact' %}" method="post" class="needs-validation" novalidate
+                id="customValidationForm">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Votre adresse e-mail"
+                    pattern="[\-a-zA-Z0-9~!$%^&*_=+\}\{'?]+(\.[\-a-zA-Z0-9~!$%^&*_=+\}\{'?]+)*@[a-zA-Z0-9_][\-a-zA-Z0-9_]*(\.[\-a-zA-Z0-9_]+)*\.[a-zA-Z]{2,5}"
+                    required />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="subject" class="form-label">Objet</label>
+                  <input type="text" class="form-control" id="subject" name="objet" placeholder="Objet de votre message"
+                    required minlength="3" maxlength="100" />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Votre message"
+                    required minlength="10" maxlength="700"></textarea>
+                  <div class="invalid-feedback"></div>
+                </div>
+                <button type="submit" class="btn btn-success">Envoyer</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="{% static "js/validate_form.js" %}"></script>
+
+{% include "component/footer.html" %}
+{% endblock base %}

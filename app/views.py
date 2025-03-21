@@ -12,3 +12,9 @@ def about(request):
     return render(request, 'app/about.html', {
         'active': active
     })
+    
+def contact(request):
+    active = 'contact'
+    return render(request, 'app/contact.html', {
+        'active': active
+    })
