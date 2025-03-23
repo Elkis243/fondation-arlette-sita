@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block base %}
+
+<div class="d-flex" id="wrapper">
+  <div class="border-end" id="sidebar-wrapper">
+    <div class="sidebar-heading">
+      <a href="{% url "index" %}" class='navbar-brand d-flex justify-content-center align-items-center fs-6'>
+        <img src="{% static 'images/logo.png' %}" alt="Logo de la Fondation Arlette Sita" width="48" height="48"
+          class="d-inline-block align-text-top me-2">
+        <div>
+          <span class='fw-bold'>FAS</span>
+          <small class='d-block'>Fondation Arlette Sita</small>
+        </div>
+      </a>
+    </div>
+    <div class="container">
+      <ul class="nav flex-column">
+        <li class="nav-item {% if active == 'dashboard' %}active-panel{% endif %}">
+          <a class="nav-link" aria-current="page" href="{% url 'faspanel' %}"><i class="bi bi-house-door fs-5"></i>
+            Tableau de bord</a>
+        </li>
+        <li class="nav-item {% if active == 'add_news' %}active-panel{% endif %}">
+          <a class="nav-link" href="{% url "add_news" %}"><i class="bi bi-calendar fs-5"></i> Événements</a>
+        </li>
+        <li class="nav-item {% if active == 'volunteer' %}active-panel{% endif %}">
+          <a class="nav-link" href="{% url "list_volunteer" %}"><i class="bi bi-person fs-5"></i> Bénévoles</a>
+        </li>
+        <li class="nav-item {% if active == 'profile' %}active-panel{% endif %}">
+          <a class="nav-link" href="{% url "profile" %}"><i class="bi bi-person-circle fs-5"></i> Profil</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'logout' %}"><i class="bi bi-box-arrow-left fs-5"></i> Déconnexion</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <i class="bi bi-list fs-2 pe-auto" id="sidebarToggle"></i>
+        <a class="btn btn-danger mx-5 btn-sm" href=''><i class="bi bi-box-arrow-left fs-5"></i> Déconnexion</a>
+      </div>
+    </nav>
+    <div class="container p-5 bg-light h-100">
+      {% block faspanel %}
+
+      {% endblock faspanel %}
+    </div>
+  </div>
+</div>
+
+<script src="{% static "js/validate_form.js" %}"></script>
+<script src="{% static "js/faspanel.js" %}"></script>
+
+{% endblock base %}

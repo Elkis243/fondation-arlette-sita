@@ -1,0 +1,36 @@
+{% extends "faspanel.html" %}
+
+{% block faspanel %}
+<section class='p-d'>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        <div class="container">
+          <a href="{% url "list_news" %}" class='btn btn-success mb-5'><i class="bi bi-list-nested"></i> Consulter la liste d'événements</a>
+          <form method="POST" action="" enctype="multipart/form-data" class="needs-validation" novalidate
+            id="customValidationForm">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="Titre" class="form-label">Titre</label>
+              <input type="text" class="form-control" id="Titre" name="title" required minlength="15" maxlength="300">
+              <div class="invalid-feedback">Titre requis !</div>
+            </div>
+            <div class="mb-3">
+              <label for="Contenu" class="form-label">Contenu</label>
+              <textarea class="form-control" id="Contenu" name="content" rows="6" required minlength="500"></textarea>
+              <div class="invalid-feedback">Contenu requis !</div>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label">Image</label>
+              <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+              <div class="invalid-feedback">Image requis !</div>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Enregistrer</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock faspanel %}

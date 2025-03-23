@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block base %}
+{% include "component/navbar.html" %}
+
+<header class="header-about d-flex justify-content-center align-items-center text-white mt-2 rounded-top-3">
+  <div class="container-fluid">
+    <p class='fs-1 text-center fw-medium' data-aos="zoom-in" data-aos-duration="1000"># Devenir Bénévole !</p>
+  </div>
+</header>
+
+<section class='p-4'>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="container">
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert fs-6  text-center {{message.tags}} return-messag" id='alert'>{{message}}
+          </div>
+          {% endfor %}
+          {% endif %}
+          <form action="{% url 'contact' %}" method="post" class="needs-validation" novalidate
+            id="customValidationForm">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="full_name" class="form-label">Nom complet</label>
+              <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Votre nom complet"
+                required minlength="3" maxlength="100" />
+              <div class="invalid-feedback">Veuillez entrer un nom complet (3 à 100 caractères).</div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Votre adresse e-mail"
+                required />
+              <div class="invalid-feedback">Veuillez entrer une adresse email valide.</div>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Téléphone</label>
+              <input type="text" class="form-control" id="phone" name="phone" placeholder="Votre numéro de téléphone"
+                pattern="0[6-9][0-9]{8}" required />
+              <div class="invalid-feedback">Veuillez entrer un numéro valide (ex: 0612345678).</div>
+            </div>
+            <div class="mb-3">
+              <label for="disponibility" class="form-label">Disponibilité</label>
+              <select name="disponibility" id="disponibility" class="form-select" required>
+                <option value="FULL_TIME">Temps plein</option>
+                <option value="WEEKEND">Weekend</option>
+              </select>
+              <div class="invalid-feedback">Veuillez sélectionner une disponibilité.</div>
+            </div>
+            <div class="mb-3">
+              <label for="skill" class="form-label">Compétence</label>
+              <input type="text" class="form-control" id="skill" name="skill" placeholder="Renseigner vos compétences"
+                required minlength="3" maxlength="100" />
+              <div class="invalid-feedback">Veuillez entrer vos compétences (3 à 100 caractères).</div>
+            </div>
+            <div class="mb-3">
+              <label for="motivation" class="form-label">Motivation</label>
+              <textarea class="form-control" id="motivation" name="motivation" rows="5" placeholder="Votre motivation"
+                required minlength="10" maxlength="700"></textarea>
+              <div class="invalid-feedback">Veuillez entrer une motivation (10 à 700 caractères).</div>
+            </div>
+            <button type="submit" class="btn btn-success">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{% static "js/validate_form.js" %}"></script>
+
+{% include "component/footer.html" %}
+{% endblock base %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block base %}
+{% include "component/navbar.html" %}
+
+<header class="header-about d-flex justify-content-center align-items-center text-white mt-2 rounded-top-3">
+  <div class="container-fluid">
+    <p class='fs-1 text-center fw-medium' data-aos="zoom-in" data-aos-duration="1000"># Mon espace</p>
+  </div>
+</header>
+
+<section class='p-4'>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert fs-6  text-center {{message.tags}} return-messag" id='alert'>{{message}}</div>
+        {% endfor %}
+        {% endif %}
+        <form class="d-flex flex-column h-100 needs-validation" action="{% url 'signin' %}" method="post" novalidate
+          id="customValidationForm">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Email" name="email" placeholder="Votre adresse e-mail"
+              pattern="[\-a-zA-Z0-9~!$%^&*_=+\}\{'?]+(\.[\-a-zA-Z0-9~!$%^&*_=+\}\{'?]+)*@[a-zA-Z0-9_][\-a-zA-Z0-9_]*(\.[\-a-zA-Z0-9_]+)*\.[a-zA-Z]{2,5}"
+              required />
+            <div class="invalid-feedback">Email requis !</div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" id="Mot de passe" placeholder="Votre mot de passe"
+              name="password" required>
+            <div class="invalid-feedback">Mot de passe requis !</div>
+          </div>
+          <p class="mb-4">
+            <a href="#" class="text-decoration-none text-dark"><i class="bi bi-lock-fill fs-4"></i>Mot de
+              passe
+              oublié ?</a>
+          </p>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success">Se connecter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{% static "js/validate_form.js" %}"></script>
+
+{% include "component/footer.html" %}
+{% endblock base %}
