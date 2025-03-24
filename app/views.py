@@ -7,6 +7,7 @@ from .models import *
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.contrib.auth import authenticate, login, logout
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 MAX_IMAGE_SIZE = 1 * 1024 * 1024
 
@@ -79,6 +80,7 @@ def add_volunteer(request):
     return render(request, "app/add_volunteer.html")
 
 
+@login_required
 def list_volunteer(request):
     active = "volunteer"
     all_volunteers = Volunteer.objects.all().order_by("-created_at")
@@ -89,6 +91,7 @@ def list_volunteer(request):
     )
 
 
+@login_required
 def detail_volunteer(request, pk):
     volunteer = get_object_or_404(Volunteer, pk=pk)
     active = "volunteer"
@@ -96,14 +99,14 @@ def detail_volunteer(request, pk):
         request, "app/detail_volunteer.html", {"active": active, "volunteer": volunteer}
     )
 
-
+@login_required
 def dimmiss_volunteer(request, pk):
     volunteer = get_object_or_404(Volunteer, pk=pk)
     volunteer.delete()
     messages.success(request, "Le bénévole a été rejeté avec succès.")
     return redirect("list_volunteer")
 
-
+@login_required
 def accept_volunteer(request, pk):
     volunteer = get_object_or_404(Volunteer, pk=pk)
     volunteer.status = "ACCEPTED"
@@ -128,6 +131,7 @@ def disconnection(request):
     logout(request)
     return redirect("index")
 
+@login_required
 def faspanel(request):
     active = "dashboard"
     total_event = Event.objects.filter(published=True).count()
@@ -187,18 +191,20 @@ def add_news(request):
 
     return render(request, "app/add_news.html", {"active": active})
 
-
+@login_required
 def list_news(request):
     active = "add_news"
     events = Event.objects.filter(published=True).order_by("-publication_date")
     return render(request, "app/list_news.html", {"active": active, "events": events})
 
+@login_required
 def news_delete(request, slug):
     event = get_object_or_404(Event, slug=slug)
     event.delete()
     messages.success(request, "Événement supprimé avec succès.")
     return redirect("list_news")
 
+@login_required
 def news_edit(request, slug):
     active = "add_news"
     event = get_object_or_404(Event, slug=slug)
@@ -240,7 +246,7 @@ def blog(request):
         request, "app/blog.html", {"events": events, "active": active}
     )
 
-
+@login_required
 def profile(request):
     active = "profile"
     return render(request, "app/profile.html", {"active": active})
