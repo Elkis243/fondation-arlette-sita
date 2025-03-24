@@ -1,41 +1,48 @@
 {% extends "faspanel.html" %}
 
 {% block faspanel %}
+{% if volunteer %}
 <div class="row justify-content-center">
   <div class="col-md-9">
-    <p class='fw-medium'><i class="bi bi-person fs-5"></i> Description du bénévole</p>
+    <a href="" class='btn btn-success mb-3'>Consulter la liste de demandes de bénévoles</a>
     <div class="bg-white px-4 py-4 rounded-1">
+      {% if volunteer.status != 'PENDING' %}
+      <span class="badge text-bg-success mb-2"><i class="bi bi-check2-all"></i> Demande acceptée</span>
+      {% endif %}
       <div class="row justify-content-center">
         <div class="col-md-4">
           <p class='text-muted mb-0'>Nom complet</p>
-          <p>Elie Kisudiku</p>
+          <p>{{volunteer.full_name}}</p>
         </div>
         <div class="col-md-4">
           <p class='text-muted mb-0'>Email</p>
-          <p>elielubama@gmail.com</p>
+          <p>{{volunteer.email}}</p>
         </div>
         <div class="col-md-4">
           <p class='text-muted mb-0'>Téléphone</p>
-          <p>243999549703</p>
+          <p>{{volunteer.phone}}</p>
         </div>
       </div>
       <div class="row justify-content-center mt-3 mb-3">
         <div class="col-md-4">
           <p class='text-muted mb-0'>Compétences</p>
-          <p>Ingénieur batiment</p>
+          <p>{{volunteer.skill}}</p>
         </div>
         <div class="col-md-4">
           <p class='text-muted mb-0'>Disponibilité</p>
-          <p>Temps plein</p>
+          <p>{{ volunteer.get_disponibility_display }}</p>
         </div>
         <div class="col-md-4">
           <p class='text-muted mb-0'>Motivation</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lauda numquam natus, similique dicta non cum minus.</p>
+          <p>{{volunteer.motivation}}</p>
         </div>
       </div>
-      <a href="" class='btn btn-success'>Accepter</a>
-      <a href="" class='btn btn-danger'>Rejeter</a>
+      {% if volunteer.status == 'PENDING' %}
+      <a href="{% url "accept_volunteer" volunteer.pk %}" class='btn btn-success'>Accepter</a>
+      <a href="{% url "dismiss_volunteer" volunteer.pk %}" class='btn btn-danger'>Rejeter</a>
+      {% endif %}
     </div>
   </div>
 </div>
+{% endif %}
 {% endblock faspanel %}

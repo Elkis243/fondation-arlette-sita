@@ -22,16 +22,16 @@
             Tableau de bord</a>
         </li>
         <li class="nav-item {% if active == 'add_news' %}active-panel{% endif %}">
-          <a class="nav-link" href="{% url "add_news" %}"><i class="bi bi-calendar fs-5"></i> Événements</a>
+          <a class="nav-link" href="{% url "add_news" %}"><i class="bi bi-folder"></i> Blog</a>
         </li>
         <li class="nav-item {% if active == 'volunteer' %}active-panel{% endif %}">
-          <a class="nav-link" href="{% url "list_volunteer" %}"><i class="bi bi-person fs-5"></i> Bénévoles</a>
+          <a class="nav-link" href="{% url "list_volunteer" %}"><i class="bi bi-person fs-5"></i> Bénévole</a>
         </li>
         <li class="nav-item {% if active == 'profile' %}active-panel{% endif %}">
-          <a class="nav-link" href="{% url "profile" %}"><i class="bi bi-person-circle fs-5"></i> Profil</a>
+          <a class="nav-link" href="{% url "profile" %}"><i class="bi bi-person-circle fs-5"></i> Mon compte</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="{% url 'logout' %}"><i class="bi bi-box-arrow-left fs-5"></i> Déconnexion</a>
+          <a class="nav-link" href="{% url 'logout' %}"><i class="bi bi-power"></i> Déconnexion</a>
         </li>
       </ul>
     </div>
@@ -40,7 +40,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <i class="bi bi-list fs-2 pe-auto" id="sidebarToggle"></i>
-        <a class="btn btn-danger mx-5 btn-sm" href=''><i class="bi bi-box-arrow-left fs-5"></i> Déconnexion</a>
+        <a class="btn btn-danger mx-5 btn-sm" href='{% url "logout" %}'><i class="bi bi-power"></i> Déconnexion</a>
       </div>
     </nav>
     <div class="container p-5 bg-light h-100">

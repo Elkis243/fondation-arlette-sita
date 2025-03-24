@@ -5,14 +5,15 @@
 <div class="row justify-content-center">
   <div class="col-md-9">
     <p class='fw-medium'><i class="bi bi-list-nested fs-5"></i> Liste d'événements</p>
-    <div class='bg-white px-4 py-3 rounded-1'>
-      <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus
-        quiaa perferendis possimus magnam. Accusamus, quia dolorum.</p>
-      <p class='text-muted small'> <i class="bi bi-calendar-event"></i> 24.11.2001</p>
-      <a href="" class='btn btn-sm btn-success'>Consulter</a>
-      <a href="" class='btn btn-sm btn-success'>Editer</a>
-      <a href="" class='btn btn-sm btn-danger'>Supprimer</a>
+    {% for key in events %}
+    <div class='bg-white px-4 py-2 rounded-1 mt-2'>
+      <p class='mb-1'>{{key.title}}</p>
+      <p class='text-muted small mb-1'> <i class="bi bi-calendar-event"></i> {{key.publication_date}}</p>
+      <a href="{% url "news_detail" key.slug %}" class='btn btn-sm btn-success'>Consulter</a>
+      <a href="{% url 'news_edit' key.slug %}" class='btn btn-sm btn-success'>Editer</a>
+      <a href="{% url 'news_delete' key.slug %}" class='btn btn-sm btn-danger'>Supprimer</a>
     </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock faspanel %}

@@ -30,20 +30,34 @@
       <div class='offcanvas-body'>
         <ul class='navbar-nav justify-content-end flex-grow-1 pe-3'>
           <li class="nav-item">
-            <a class="nav-link {% if active == 'index' %}active{% endif %}" href='{% url "index" %}'>Accueil</a>
+            <a class="nav-link p-2 {% if active == 'index' %}active-panel{% endif %}"
+              href='{% url "index" %}'>Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if active == 'about' %}active{% endif %}" href='{% url "about" %}'>Qui sommes nous ?</a>
+            <a class="nav-link p-2 {% if active == 'about' %}active-panel{% endif %}" href='{% url "about" %}'>Qui
+              sommes nous
+              ?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href=''>Actualités</a>
+            <a class="nav-link p-2 {% if active == 'blog' %}active-panel{% endif %}" href='{% url "blog" %}'>Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if active == 'contact' %}active{% endif %}" href='{% url "contact" %}'>Contact</a>
+            <a class="nav-link p-2 {% if active == 'contact' %}active-panel{% endif %}"
+              href='{% url "contact" %}'>Contact</a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link p-2" href='{% url "faspanel" %}'>Admin</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-outline-success" href='{% url 'signin' %}'><i class="bi bi-person-circle"></i> Mon espace</a>
+            <a class="btn btn-danger mx-2" href="{% url 'logout' %}"><i class="bi bi-power"></i> Déconnexion</a>
           </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="btn btn-outline-success mx-2" href='{% url 'signin' %}'><i class="bi bi-person-circle"></i> Mon
+              espace</a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>
