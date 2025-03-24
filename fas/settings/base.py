@@ -24,13 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -151,7 +146,7 @@ AUTH_USER_MODEL = "app.User"
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
 EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == 'True'
-EMAIL_PORT = 587
+EMAIL_PORT = int(os.getenv('EMAIL_PORT'))
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
