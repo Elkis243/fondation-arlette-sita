@@ -19,10 +19,16 @@
               <i class="bi bi-geo fs-3"></i> 1485 Avenue Prison Commune de Barumbu Quartier bon marché, Kinshasa, RDC
             </div>
             <div class="alert alert-light">
-              <i class="bi bi-phone fs-3"></i> +243 998 346 012 / 242 06 437 77 35
+              <i class="bi bi-envelope fs-3"></i> <a href="mailto:contact@fondationarlettesita.org"
+                class='text-decoration-none text-success' target="_blank"> Envoyer un mail</a>
             </div>
             <div class="alert alert-light">
-              <i class="bi bi-envelope-open fs-3"></i> contact@fondationarlettesita.org</p>
+              <i class="bi bi-phone fs-3"></i> <a href="tel:+243842594558" class='text-decoration-none text-success'
+                target="_blank"> Appeler maintenant</a>
+            </div>
+            <div class="alert alert-light">
+              <i class="bi bi-whatsapp fs-3"></i> <a href="https://wa.me/243998346012"
+                class='text-decoration-none text-success' target="_blank"> Discuter sur WhatsApp</a>
             </div>
           </div>
           <div class="col-md-8">
@@ -38,8 +44,8 @@
                 {% csrf_token %}
                 <div class="mb-3">
                   <label for="name" class="form-label">Nom</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom"
-                    required minlength="3" maxlength="100" />
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom" required
+                    minlength="3" maxlength="100" />
                   <div class="invalid-feedback"></div>
                 </div>
                 <div class="mb-3">
