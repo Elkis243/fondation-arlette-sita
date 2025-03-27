@@ -55,86 +55,39 @@
     body {
       height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      background: linear-gradient(to right, #ff758c, #ff7eb3);
-      color: white;
+      align-items: center;
+      background-color: #f8f9fa;
+    }
+
+    .container {
       text-align: center;
-      font-family: 'Arial', sans-serif;
     }
 
-    .error-container {
-      max-width: 600px;
-      padding: 20px;
+    .image-container {
+      max-width: 500px;
+      margin: 0 auto;
     }
 
-    .error-code {
-      font-size: 120px;
-      font-weight: bold;
-      animation: fadeIn 1s ease-in-out;
+    .image-container img {
+      width: 100%;
+      height: auto;
     }
 
-    .error-message {
-      font-size: 22px;
-      margin-bottom: 20px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    .img-fluid {
-      width: 250px;
-      margin-bottom: 20px;
-      animation: bounce 2s infinite;
-    }
-
-    .btn-home {
-      background-color: #fff;
-      color: #ff758c;
-      border: none;
-      padding: 12px 24px;
-      font-size: 18px;
-      border-radius: 50px;
-      transition: 0.3s;
-    }
-
-    .btn-home:hover {
-      background-color: #ff5277;
-      color: white;
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-10px);
-      }
+    .btn-return-home {
+      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
-  <div class="error-container">
-    <h1 class="error-code">404</h1>
-    <p class="error-message">Oops ! La page que vous cherchez est introuvable.</p>
-    <img src="{% static 'images/404.png' %}" alt="Erreur 404 - Page non trouvée" class="img-fluid">
-    <br>
-    <a href="/" class="btn btn-success">Retour à l'accueil</a>
+  <div class="container">
+    <div class="image-container">
+      <img src="{% static 'images/404.svg' %}" alt="404 Image">
+    </div>
+    <h1 class="fs-1">Oups ! Page non trouvée !</h1>
+    <p class="fs-6">La page que vous recherchez n'existe pas !</p>
+    <a href="/" class="btn btn-success">Retour vers l'accueil</a>
   </div>
 </body>
 
