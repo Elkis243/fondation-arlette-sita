@@ -276,3 +276,17 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # End of https://www.toptal.com/developers/gitignore/api/django,python,venv
+
+# Identifiants de connexion de test
+# ==========================
+
+# username: admin
+# email: admin@test.com
+# password: admin2411$$
+# ==========================
+
+# Identifiants de connexion du compte pythonAnywhere
+# ==================================================
+
+# username: fas
+# password: fas2025$$

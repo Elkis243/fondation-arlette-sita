@@ -124,6 +124,12 @@ def signin(request):
             if user.user_type == 'admin':
                 login(request, user)
                 return redirect("faspanel")
+            else:
+                messages.error(request, "Vous n'avez pas accès à cette page !")
+                return redirect("signin")
+        else:
+            messages.error(request, "Identifiants invalides. Veuillez réessayer !")
+            return redirect("signin")
     return render(request, "app/signin.html")
 
 
