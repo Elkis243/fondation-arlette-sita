@@ -288,5 +288,6 @@ pip-selfcheck.json
 # Identifiants de connexion du compte pythonAnywhere
 # ==================================================
 
-# username: fas
-# password: fas2025$$
+# username: user
+# email: user@test.com
+# password: user2411$$
