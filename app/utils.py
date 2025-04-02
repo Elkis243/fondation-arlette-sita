@@ -6,6 +6,32 @@ from django.conf import settings
 from django.contrib import messages
 
 
+def send_contact_email(request, *args, **kwargs):
+    name = kwargs.get("name")
+    recipient = kwargs.get("email")
+    subject = kwargs.get("subject")
+    message = kwargs.get("message")
+    sender = settings.EMAIL_HOST_USER
+
+    try:
+        send_mail(
+            subject=f"Message de {name} - {subject}",
+            message=message,
+            from_email=sender,
+            recipient_list=[recipient],
+            fail_silently=False,
+        )
+        messages.success(
+            request,
+            "Votre message a été envoyé avec succès. Nous vous répondrons bientôt !",
+        )
+    except Exception as e:
+        messages.error(
+            None,
+            f"Une erreur s'est produite lors de l'envoi de votre message : {str(e)}",
+        )
+
+
 def send_volunteer_acceptance_email(request, volunteer):
     subject = "🎉 Félicitations, votre demande de bénévolat a été acceptée !"
     message = f"""

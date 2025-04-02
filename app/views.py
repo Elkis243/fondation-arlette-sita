@@ -31,24 +31,14 @@ def contact(request):
         recipient = request.POST.get("email")
         subject = request.POST.get("objet")
         message = request.POST.get("message")
-        sender = settings.EMAIL_HOST_USER
-        try:
-            send_mail(
-                subject=f"Message de {name} - {subject}",
-                message=message,
-                from_email=sender,
-                recipient_list=[recipient],
-                fail_silently=False,
-            )
-            messages.success(
-                request,
-                "Votre message a été envoyé avec succès. Nous vous répondrons bientôt !",
-            )
-        except Exception as e:
-            messages.error(
-                request,
-                f"Une erreur s'est produite lors de l'envoi de votre message : {str(e)}",
-            )
+        
+        send_contact_email(
+            request,
+            name=name,
+            email=recipient,
+            subject=subject,
+            message=message,
+        )
 
         return HttpResponseRedirect("/contact/")
     return render(request, "app/contact.html", {"active": active})
