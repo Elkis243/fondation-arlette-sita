@@ -8,6 +8,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.contrib.auth import authenticate, login, logout
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
+from .utils import *
 
 MAX_IMAGE_SIZE = 1 * 1024 * 1024
 
@@ -111,7 +112,10 @@ def accept_volunteer(request, pk):
     volunteer = get_object_or_404(Volunteer, pk=pk)
     volunteer.status = "ACCEPTED"
     volunteer.save()
-    messages.success(request, "Le bénévole a été accepeter avec succès.")
+    
+    # Envoi de l'email de confirmation
+    send_volunteer_acceptance_email(request, volunteer)
+    
     return redirect("list_volunteer")
 
 
