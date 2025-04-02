@@ -4,7 +4,7 @@
 {% if volunteer %}
 <div class="row justify-content-center">
   <div class="col-md-9">
-    <a href="" class='btn btn-success mb-3'>Consulter la liste de demandes de bénévoles</a>
+    <a href="{% url 'list_volunteer' %}" class='btn btn-success mb-3'>Consulter la liste de demandes de bénévoles</a>
     <div class="bg-white px-4 py-4 rounded-1">
       {% if volunteer.status != 'PENDING' %}
       <span class="badge text-bg-success mb-2"><i class="bi bi-check2-all"></i> Demande acceptée</span>
