@@ -103,8 +103,8 @@ def detail_volunteer(request, pk):
 @login_required
 def dimmiss_volunteer(request, pk):
     volunteer = get_object_or_404(Volunteer, pk=pk)
+    send_volunteer_rejection_email(request, volunteer)
     volunteer.delete()
-    messages.success(request, "Le bénévole a été rejeté avec succès.")
     return redirect("list_volunteer")
 
 @login_required
@@ -112,10 +112,7 @@ def accept_volunteer(request, pk):
     volunteer = get_object_or_404(Volunteer, pk=pk)
     volunteer.status = "ACCEPTED"
     volunteer.save()
-    
-    # Envoi de l'email de confirmation
     send_volunteer_acceptance_email(request, volunteer)
-    
     return redirect("list_volunteer")
 
 
