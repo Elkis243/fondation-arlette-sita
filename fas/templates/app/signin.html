@@ -19,7 +19,7 @@
         <div class="alert fs-6  text-center {{message.tags}} return-messag" id='alert'>{{message}}</div>
         {% endfor %}
         {% endif %}
-        <form class="d-flex flex-column h-100 needs-validation" action="{% url 'signin' %}" method="post" novalidate
+        <form class="needs-validation" action="{% url 'signin' %}" method="post" novalidate
           id="customValidationForm">
           {% csrf_token %}
           <div class="mb-3">
