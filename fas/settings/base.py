@@ -158,6 +158,10 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 # Django auto logout configuration
 LOGIN_URL = "/signin/"
+LOGOUT_REDIRECT_URL = "/signin/"
+
+# delai d'expiration du lien de réinitialisation du mot de passe 
+PASSWORD_RESET_TIMEOUT = 3600 # Une heure (3600 secondes)
 
 # Django auto logout configuration
 AUTO_LOGOUT = {
