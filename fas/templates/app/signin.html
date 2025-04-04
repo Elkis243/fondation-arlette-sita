@@ -26,7 +26,8 @@
             <input type="email" class="form-control" id="Email" name="email" placeholder="Votre adresse mail"
               pattern="[\-a-zA-Z0-9~!$%^&*_=+\}\{'?]+(\.[\-a-zA-Z0-9~!$%^&*_=+\}\{'?]+)*@[a-zA-Z0-9_][\-a-zA-Z0-9_]*(\.[\-a-zA-Z0-9_]+)*\.[a-zA-Z]{2,5}"
               required />
-            <div class="invalid-feedback">Email requis !</div>
+            <div class="invalid-feedback">Email requis !
+            </div>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Mot de passe</label>
@@ -39,7 +40,8 @@
           </div>
         </form>
         <p class='text-center mt-3'>
-          <a href="{% url 'password_reset' %}" class="text-center text-decoration-none"> <i class='bi bi-key'></i> Mot de passe oublié ?</a>
+          <a href="{% url 'password_reset' %}" class="text-center text-decoration-none"> <i class='bi bi-key'></i> Mot
+            de passe oublié ?</a>
         </p>
       </div>
     </div>
